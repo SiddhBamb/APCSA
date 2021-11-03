@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class InOrderRunner
+{
+	// main(): program starting point
+	public static void main( String[] args ) 
+	{
+		// set up scanner to read input from user
+		
+		
+		// prompt the user for input
+		System.out.print( "Enter x, y, and z: " );
+		
+		//use the scanner to read in the input
+		
+		
+		// create InOrder object by calling the initialization constructor
+		
+		
+		// call the method in InOrder you created to determine whether the numbers 
+		//were in order. Remember to put the method call inside a print statement
+		
+    }
+}

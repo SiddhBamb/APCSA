@@ -1,0 +1,596 @@
+public class Song
+{
+	/** title instance variable*/
+	private String title;
+	/** album instance variable*/
+	private String album;
+	/** artist instance variable*/
+	private String artist;
+	/** song length instance variable (in seconds) */
+	private int songLength;
+	
+	/** default constructor used to set the instance variables to default values*/
+	public Song()
+	{
+		title = "Title";
+		album = "Album";
+		artist = "Artist";
+		songLength = 0;
+	}
+	
+	/** initialization constructor used to set the instance variables
+		* @param t the song title 
+		* @param al the name of the album
+		* @param ar the name of the artist
+		* @param length the length of the song*/
+	public Song(String t, String al, String ar, int length)
+	{
+		title = t;
+		album = al;
+		artist = ar;
+		songLength = length;
+	}
+	
+	/** modifier method to set the instance variable title
+		* @param t the song title*/
+	public void setTitle(String t)
+	{
+		title = t;
+	}
+	
+	/** modifier method to set the instance variable album
+		* @param al the name of the album*/
+	public void setAlbum(String al)
+	{
+		album = al;
+	}
+	
+	/** modifier method to set the instance variable artist
+		* @param ar the name of the artist*/
+	public void setArtist(String ar)
+	{
+		artist = ar;
+	}
+	
+	/** modifier method to set the instance variable songLength
+		* @param length the name of the album in length*/
+	public void setLength(int length)
+	{
+		songLength = length;
+	}
+	
+	/** accessor method to get the instance variable title
+		* @return return the title of the song*/
+	public String getTitle()
+	{
+		return title;
+	}
+	
+	/** accessor method to get the instance variable album
+		* @return return the name of the album*/
+	public String getAlbum()
+	{
+		return album;
+	}
+	
+	/** accessor method to get the instance variable artist
+		* @return return the name of the artist*/
+	public String getArtist()
+	{
+		return artist;
+	}
+	
+	/** accessor method to get the instance variable songLength
+		* @return return the length of the song*/
+	public int getLength()
+	{
+		return songLength;
+	}
+	
+	/** equals method to determine if two songs are equal
+		* @param obj which is a reference to the song object to be compared
+		* @return return true or false if the song is equal*/
+	public boolean equals(Object obj)
+	{
+		// leave this here
+		// check equality using the s reference
+		Song s = (Song) obj;
+		boolean sameTitle = (s.title.equals(title));
+		boolean sameAlbum = (s.album.equals(album));
+		boolean sameArtist = (s.artist.equals(artist));
+		boolean sameLength = (s.songLength == songLength);
+		return sameTitle && sameAlbum && sameArtist && sameLength;
+	}
+	
+	/** toString() method to get the instance variables
+		* @return return a String containing the instance variablees*/
+	public String toString()
+	{
+		return "Title: " + title + ". Album: " + album + ". Artist: " + artist + ". Length: " + songLength + ".";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class SongRunner
+{
+	public static void main(String[] args)
+	{
+		// create object using default constructor
+		Song test1 = new Song();
+		// test the default constructor which also tests the toString() method
+		System.out.println(test1);
+		// create object using the initialization constructor
+		Song test2 = new Song("title", "album", "artist", 333);
+		// test the initilization constructor which also tests the toString() method
+		System.out.println(test2);
+		// create equivalent object for testing equals method
+		Song test3 = test2;
+		// call setTitle() method
+		test2.setTitle("newTitle");
+		// call the getTitle() method which also tests the setTitle() method
+		System.out.println(test2.getTitle());
+		// call setAlbum() method
+		test2.setAlbum("newAlbum");
+		// call the getAlbum() method which also tests the setAlbum() method
+		System.out.println(test2.getAlbum());
+		// call the setArtist() method
+		test2.setArtist("newArtist");
+		// call the getArtist() method which also tests the setArtist() method
+		System.out.println(test2.getArtist());
+		// call the setLength() method
+		test2.setLength(500);
+		// call the getLength() method which also tests the setLength() method
+		System.out.println(test2.getLength());
+		// call the equals method on non-equal objects
+		System.out.println(test1.equals(test2));
+		//call the equals method on equal objects
+		System.out.println(test2.equals(test3));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Arrays;
+
+public class PlayList
+{
+	/** Song[] array list instance variable*/
+	private Song[] list;
+	
+	/** default constructor used to set the instance variables to default values*/
+	public PlayList()
+	{
+		// I would recommend setting the length to 1
+		list = new Song[1];
+		// Then make sure you add 1 song to the list in index 0
+		Song song = new Song();
+		list[0] = song;
+	}
+	
+	/** initialization constructor used to set the instance variables
+		* @param x the length of the playlist */
+	public PlayList(int x)
+	{
+		// this should set the length of the playlist
+		list = new Song[x];
+	}
+	
+	/** modifier method to set the instance variable list
+		* @param x the length of the playlist*/
+	public void setList(int x)
+	{
+		// this should set the length of the playlist
+		list = new Song[x];
+	}
+	
+	/** accessor method to get the entire playlist
+		* @return return the entire playslist as a Song[] array*/
+	public Song[] getList()
+	{
+		return list;
+	}
+	
+	/** method to add a song to the playlist
+		* @param x the position in the playlist to add the song
+		* @param s the song to add to the playlist*/
+	public void addSong(int x, Song s)
+	{
+		/* you need to check to make sure the array is big enough to add the song
+		   if it is not big enough you will need to create a large enough array
+			   and then transfer the songs to the new array before assigning the new
+			   array back to the list array*/
+			if(x > list.length - 1)
+			{
+				Song[] newList = new Song[x+1];
+				for(int i = 0; i < list.length; i++)
+				{
+					newList[i] = list[i];
+				}
+				list = newList;
+				list[x] = s;
+			} else
+			{
+				list[x] = s;
+			}
+			
+	}
+	
+	/** method to get a song from the playlist
+		* @param x the position in the playlist to get the song from
+		* @return return the song in the position specified*/
+	public Song getSong(int x)
+	{
+		return list[x];
+	}
+	
+	/** method to get the number of songs in the playlist
+		* @return return the number of songs in the playlist*/
+	public int numSongs()
+	{
+		return list.length;
+	}
+	
+	/** method to get the total length of the playlist specified in seconds
+		* @return return the length of the playlist in seconds*/
+	public int totalLength()
+	{
+		/* before accessing the length of an individual song you should ensure that the 
+				song reference is not null*/
+		int sum = 0;
+		for(int i = 0; i < list.length; i++)
+		{
+				if(list[i] != null)
+				{
+					sum += list[i].getLength();
+				}
+		}
+		return sum;
+	}
+	
+	/** method to remove any songs from the specified artist
+		* @param ar the artist of the songs to remove from the playlist*/
+	public void removeArtist(String ar)
+	{
+		/* to remove the songs with the specified artist you will first need to count the
+				occurances of that artist. 
+				Then you will need to create a new smaller array
+				Then you can copy the songs to the new array excluding the ones from the artist*/
+		int sum = 0;
+		for(int i = 0; i < list.length; i++)
+		{
+			if(list[i] != null)
+			{
+				if(list[i].getArtist().equals(ar))
+				{
+					sum++;
+				}
+			}
+		}
+		//System.out.println(sum + " TESTING" );
+		//int temp = list.length;
+		/*Song[] tempList = new Song[temp];
+		for(int i = 0; i < temp; i++)
+		{
+			tempList[i] = list[i];
+		}*/
+		
+		Song[] newList = new Song[list.length - sum];
+		int j = 0;
+		for(int i = 0; i < list.length; i++)
+		{
+			if(list[i].getTitle() != null && (!(list[i].getArtist().equals(ar))))
+			{
+				newList[j] = list[i];
+				//System.out.println("abcd");
+				j++;
+			}
+			
+		}
+		
+		/*
+			for(int i = 0; i < list.length; i++)
+		{
+			if(list[i] != null)
+			{
+				if(!(list[i].getArtist().equals(ar)))
+				{
+					list[i] = tempList[i];
+				}
+			}
+		} */
+		
+			list = newList;
+	}
+	
+	/** method to remove any songs longer than the length specified
+		* @param length length of songs to removed given in seconds*/
+	public void removeLength(int length)
+	{
+		// same as method above with creating a smaller array
+		int sum = 0;
+		for(int i = 0; i < list.length; i++)
+		{
+			if(list[i] != null)
+			{
+				if(list[i].getLength() > length)
+				{
+					sum++;
+				}
+			}
+		}
+		
+		//int temp = list.length;
+		/*Song[] tempList = new Song[temp];
+		for(int i = 0; i < temp; i++)
+		{
+			tempList[i] = list[i];
+		}
+		*/
+		
+		Song[] newList = new Song[list.length - sum];
+		int j = 0;
+		for(int i = 0; i < list.length/* && list[i] != null && (list[i].getLength() < length)*/; i++)
+		{
+			if(list[i] != null && (list[i].getLength() < length))
+			{
+				newList[j] = list[i];
+				j++;
+			}
+		}
+		
+		/*
+			for(int i = 0; i < list.length; i++)
+		{
+			if(list[i] != null)
+			{
+				if(!(list[i].getLength() > length))
+				{
+					list[i] = tempList[i];
+				}
+			}
+		}*/
+			list = newList;
+	}
+	
+	/** method to shuffle the order of the playlist - use the card shuffling example from the arrays presentation to help*/
+	public void shuffle()
+	{
+		// use the card shuffling example from the arrays presentation to help you with this
+		int exchange = 0;
+		Song temp = new Song();
+		int n = list.length;
+		for(int i = 0; i < n; i++)
+		{
+		  exchange = i+(int)(Math.random()*(n-i));
+		  temp = list[i];
+		  list[i] = list[exchange];
+		  list[exchange] = temp;
+		}
+		
+	}
+	
+	/** equals method to determine if two playlists are equal
+	 * The base class for all classes instantiated into objects in Java is "Object"
+		* @param obj the object to be compared
+		* @return return true or false if the playlists are equal*/
+	public boolean equals(Object obj)
+	{
+		PlayList pl = (PlayList)obj;
+		if(!Arrays.equals(list, pl.getList()))
+			return false;
+		return true;
+	}
+	
+	/** toString() method to get the instance variables
+		* @return return a String containing the instance variablees*/
+	public String toString()
+	{
+		return Arrays.toString(list);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class PlayListRunner
+{
+	public static void main(String[] args)
+	{
+		// create object using default constructor
+		PlayList test1 = new PlayList();
+		// test the default constructor which also tests the toString() method
+		System.out.println(test1);
+		// create object using the initialization constructor
+		PlayList test2 = new PlayList(2);
+		// test the initilization constructor which also tests the toString() method
+		System.out.println(test2);
+		// create extra playlist for equality testing later
+		PlayList test3 = test2;
+		// call the setList() method
+		test1.setList(2);
+		// test the setList() method
+		System.out.println(test1);
+		// call the addSong() method
+		test2.addSong(0, new Song("song1", "album1", "artist1", 250));
+		test2.addSong(1, new Song("song2", "album2", "artist2", 350));
+		// call the getSong() method which also tests the addSong() method
+		System.out.println(test2.getSong(0));
+		// call the numSongs() method
+		System.out.println(test2.numSongs());
+		// call the totalLength() method
+		System.out.println(test2.totalLength());
+		// call the removeArtist() method
+		test2.removeArtist("artist1");
+		// display updated list
+		System.out.println(test2);
+		// add song back
+		test2.addSong(1, new Song("song1", "album1", "artist1", 250));
+		// call the removeLength() method
+		test2.removeLength(300);
+		// display updated list
+		System.out.println(test2);
+		// add song back
+		test2.addSong(1, new Song("song2", "album2", "artist2", 350));
+		// display updated list
+		System.out.println(test2);
+		// call shuffle() method
+		test2.shuffle();
+		// display updated list
+		System.out.println(test1);
+		System.out.println(test2);
+		System.out.println(test3);
+		// call the equals method on non-equal objects
+		System.out.println(test1.equals(test2));
+		//call the equals method on equal objects
+		System.out.println(test2.equals(test3));
+	}
+}
