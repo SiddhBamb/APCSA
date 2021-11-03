@@ -1,0 +1,28 @@
+ArrayList: [5, 18, 7, 20, 16, 19, 18, 12, 14, 5]
+
+
+Sorted ascending using bubbleSort: [5, 5, 7, 12, 14, 16, 18, 18, 19, 20]
+
+Sorted descending using bubbleSort: [20, 19, 18, 18, 16, 14, 12, 7, 5, 5]
+
+
+
+Sorted ascending using selectionSort: [5, 7, 12, 14, 16, 18, 18, 19, 20, 5]
+
+Sorted descending using selectionSort: [20, 19, 18, 18, 16, 14, 12, 7, 5, 5]
+GapSort: Invented Sort: [5, 5, 7, 12, 14, 16, 18, 18, 19, 20]
+
+
+
+
+Array: [10, 20, 19, 17, 13, 6, 20, 4, 20, 14]
+
+Sorted ascending using bubbleSort: [4, 6, 10, 13, 14, 17, 19, 20, 20, 20]
+
+Sorted descending using bubbleSort: [20, 20, 20, 19, 17, 14, 13, 10, 6, 4]
+
+
+
+Sorted ascending using selectionSort: [4, 6, 10, 13, 17, 19, 20, 20, 20, 14]
+
+Sorted descending using selectionSort: [20, 20, 20, 19, 17, 14, 13, 10, 6, 4]
